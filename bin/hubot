@@ -20,6 +20,16 @@ Switches = [
   [ "-v", "--version",         "Displays the version of hubot installed" ]
 ]
 
+expEnv = ->
+  env = require('../../../dubot-options.json').env
+  path = require('../../../dubot-options.json').path
+  process.env.PATH = path + ":" + process.env.PATH
+  for i of env
+    console.log env[i]
+    process.env[i] = env[i]
+
+expEnv()
+
 Options =
   adapter:     process.env.HUBOT_ADAPTER or "shell"
   alias:       process.env.HUBOT_ALIAS   or false

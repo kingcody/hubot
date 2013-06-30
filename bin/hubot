@@ -25,7 +25,6 @@ expEnv = ->
   path = require('../../../dubot-options.json').path
   process.env.PATH = path + ":" + process.env.PATH
   for i of env
-    console.log env[i]
     process.env[i] = env[i]
 
 expEnv()
